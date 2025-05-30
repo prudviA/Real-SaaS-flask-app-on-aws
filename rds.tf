@@ -1,9 +1,9 @@
 resource "aws_db_subnet_group" "default" {
-  name       = "SaaS-db-subnet-group"
+  name       = "saas-db-subnet-group"
   subnet_ids = [aws_subnet.flask_private_subnet_1, aws_subnet.flask_private_subnet_2 ]
 
   tags = {
-    Name = "SaaS_db_subnet_group"
+    Name = "saas_db_subnet_group"
   }
 }
 resource "aws_db_instance" "default" {
