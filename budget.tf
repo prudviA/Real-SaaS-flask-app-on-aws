@@ -3,7 +3,7 @@ resource "aws_budgets_budget" "monthly" {
   budget_type       = "COST"
   limit_amount      = "10"
   limit_unit        = "USD"
-  time_period_start = "2025-06-01"
+  time_period_start = "2025-06-01_00:00"
   time_unit         = "MONTHLY"
 
   cost_filter {
