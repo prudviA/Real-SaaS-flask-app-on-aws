@@ -15,7 +15,7 @@ resource "aws_instance" "node_app" {
 connection {
     type        = "ssh"
     user        = "ec2-user"  # Change if your AMI uses different username
-    private_key = file("~/.ssh/jenkins-server.pem")  # Path to your private key matching key_name
+    private_key = file("/home/ec2-user/.ssh/jenkins-server.pem")  # Path to your private key matching key_name
     host        = self.public_ip
   }
 
