@@ -1,5 +1,5 @@
 resource "aws_security_group" "ec2-sg" {
-  name        = "flask-ec2-sg"
+  name        = "node-ec2-sg"
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = aws_vpc.flask_vpc.id
 
@@ -22,6 +22,13 @@ ingress {
   cidr_blocks       = ["0.0.0.0/0"] 
 }
 
+ingress {
+  
+  from_port         = 3000
+  protocol          = "tcp"
+  to_port           = 3000
+  cidr_blocks       = ["0.0.0.0/0"] 
+}
 
 egress {
   
@@ -32,7 +39,7 @@ egress {
  }
 
 tags = {
-    Name = "flask_ec2_sg"
+    Name = "node_ec2_sg"
  }
 }
 

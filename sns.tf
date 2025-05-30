@@ -5,5 +5,5 @@ resource "aws_sns_topic" "budget_alerts" {
 resource "aws_sns_topic_subscription" "email_alert" {
   topic_arn = aws_sns_topic.budget_alerts.arn
   protocol  = "email"
-  endpoint  = "prudhviachuth77299@gmail.com"
+  endpoint  = "prudhvachuth77299@gmail.com"
 }
