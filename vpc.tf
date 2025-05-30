@@ -33,7 +33,7 @@ resource "aws_route_table" "flask_rt" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.flask_igw.id
+    gateway_id = aws_interne_gateway.flask_igw.id
   }
 
 
@@ -86,7 +86,7 @@ resource "aws_route_table" "nat_flask_rt" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_internet_gateway.flask_nat.id
+    nat_gateway_id = aws_nat_gateway.flask_nat.id
   }
 
 
