@@ -33,7 +33,7 @@ resource "aws_route_table" "flask_rt" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_interne_gateway.flask_igw.id
+    gateway_id = aws_internet_gateway.flask_igw.id
   }
 
 
@@ -96,7 +96,7 @@ resource "aws_route_table" "nat_flask_rt" {
 }
 
 resource "aws_route_table_association" "private_flask_rt_asso_1" {
-  subnet_id      = aws_subnet.flask_private_subnet_1id
+  subnet_id      = aws_subnet.flask_private_subnet_1.id
   route_table_id = aws_route_table.nat_flask_rt.id
 }
 
