@@ -1,28 +1,28 @@
 resource "aws_instance" "node_app" {
-  ami           = "ami-0af9569868786b23a"
-  instance_type = "t2.micro"
-  subnet_id = aws_subnet.flask_public_subnet.id
-  vpc_security_group_ids = [aws_security_group.ec2-sg.id]
-  key_name = "saas-key"
+  ami                         = "ami-0af9569868786b23a"
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.flask_public_subnet.id
+  vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
+  key_name                    = "saas-key"
   associate_public_ip_address = true
-  
+
 
   tags = {
     Name = "nodeapp"
   }
 
 
-connection {
-  type        = "ssh"
-  user        = "ec2-user"
-  private_key = file("/home/ubuntu/saas-key.pem")
-  host        = self.public_ip
-}
+  connection {
+    type        = "ssh"
+    user        = "ec2-user"
+    private_key = file("/home/ubuntu/saas-key.pem")
+    host        = self.public_ip
+  }
 
- provisioner "file" {
+  provisioner "file" {
     source      = "/home/ubuntu/Real-SaaS-flask-app-on-aws/app/index.js"
     destination = "/home/ec2-user/index.js"
-  } 
+  }
 
   provisioner "file" {
     source      = "/home/ubuntu/Real-SaaS-flask-app-on-aws/app/index.html"
