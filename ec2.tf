@@ -20,12 +20,12 @@ connection {
 }
 
  provisioner "file" {
-    source      = "index.js"
+    source      = "/home/ubuntu/Real-SaaS-flask-app-on-aws/app/index.js"
     destination = "/home/ec2-user/index.js"
   } 
 
   provisioner "file" {
-    source      = "index.html"
+    source      = "/home/ubuntu/Real-SaaS-flask-app-on-aws/app/index.html"
     destination = "/home/ec2-user/index.html"
   }
 
