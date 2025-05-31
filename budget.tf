@@ -19,6 +19,7 @@ resource "aws_budgets_budget" "monthly" {
     threshold_type             = "PERCENTAGE"
     notification_type          = "ACTUAL"
     subscriber_email_addresses = ["prudhviachuth77299@gmail.com"]
-    subscriber_sns_topic_arns = [aws_sns_topic.budget_alerts.arn]
+    subscriber_sns_topic_arns  = [aws_sns_topic.budget_alerts.arn]
   }
 }
+~   
