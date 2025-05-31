@@ -3,7 +3,7 @@ resource "aws_instance" "node_app" {
   instance_type = "t2.micro"
   subnet_id = aws_subnet.flask_public_subnet.id
   vpc_security_group_ids = [aws_security_group.ec2-sg.id]
-  key_name = "jenkins-server"
+  key_name = "saas-key"
   associate_public_ip_address = true
   
 
@@ -13,11 +13,11 @@ resource "aws_instance" "node_app" {
 
 
 connection {
-    type        = "ssh"
-    user        = "ec2-user"  # Change if your AMI uses different username
-    agent       = true
-    host        = self.public_ip
-  }
+  type        = "ssh"
+  user        = "ec2-user"
+  private_key = file("/home/ubuntu/saas-key.pem")
+  host        = self.public_ip
+}
 
  provisioner "file" {
     source      = "index.js"
